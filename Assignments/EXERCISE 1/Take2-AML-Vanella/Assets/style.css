@@ -187,7 +187,7 @@ li {
 
 
 
-/*_______________ tofu recipes list _______________ */
+/*_______________ tofu recipes list and card view _______________ */
 
 /*card view*/
 
@@ -229,7 +229,8 @@ ul.list-view li {
   align-items: center;
 }
 
-/* Media query for larger screens */
+
+/* _______________ Media query for larger screens _______________  */
 @media (min-width: 768px) {
     ul.card-view li {
         width: calc(33.333% - 0.75rem);
