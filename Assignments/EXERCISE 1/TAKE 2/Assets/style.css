@@ -229,3 +229,14 @@ ul.list-view li {
   align-items: center;
 }
 
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    ul.card-view li {
+        width: calc(33.333% - 0.75rem);
+        margin-right: 1rem;
+    }
+    
+    ul.card-view li:nth-child(3n) {
+        margin-right: 0;
+    }
+}
