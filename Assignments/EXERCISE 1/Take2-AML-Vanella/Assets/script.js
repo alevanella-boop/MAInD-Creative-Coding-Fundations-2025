@@ -29,12 +29,6 @@ cardButton.addEventListener("click", () => {
 });
 
 
-//colorInput.addEventListener("input", (event) => {
-    //console.log("color input changed!", event.target.value);
-
-  //  tofuList.style.backgroundColor = event.target.value;
-//})
-
 
 //CHANGE VIEW
 
