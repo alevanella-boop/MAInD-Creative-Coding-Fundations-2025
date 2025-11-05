@@ -13,8 +13,8 @@
  ## add 2 screenshots of the final file
  save them in DOC
 
- ![first screenshot, list view](<../../Assignments/EXERCISE 1/Take2-AML-Vanella/DOCS/ex1-Vanella-list-view.png>)
- ![first screenshot, card view](<../../Assignments/EXERCISE 1/Take2-AML-Vanella/DOCS/ex1-Vanella-card-view.png>)
+ ![first screenshot, list view](DOCS/ex1-Vanella-list-view.png)
+ ![first screenshot, card view](DOCS/ex1-Vanella-card-view.png)
 
 
 ## Project description
