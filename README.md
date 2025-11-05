@@ -1,6 +1,6 @@
-# MAInD-Creative-Coding-Findations-2025
+# MAInD-Creative-Coding-Fundations-2025
 
-**Course name**: **Creative Coding Foundations**
+**Course name**: **Creative Coding Fundations**
 
 **Course ID**: **ID102.01**
 
@@ -30,5 +30,6 @@ The course aims to provide students with a broad introduction to coding, with a 
 It is based on the recent core web technologies (HTML, CSS and JavaScript) and the VS Code and Github tools. It offers hands-on experience with responsive web design implementation, DOM manipulation, API usage and I/O integration via the Canvas (for example, using the microphone).
 
 Each week, the students will learn and apply new programming principles and techniques in a one-day class that includes the following sessions: a brief individual written test covering all previous topics (which will be evaluated), a lecture on programming delivered by the lecturers, practical exercises supported by the teaching staff, and development of class assignments.
+
 
 The assignments and the course are designed to build programming experience for the remainder of the master’s program, and the brief written tests allow students to personally assess their understanding and mastery of core fundamental topics.
