@@ -35,7 +35,7 @@ This mini project is supposed to show some core programming concepts, like "dyna
 As my first coding project ever, I hope it does.
 
 
-## Fuctions list
+## List of functionalities
 
 #### document.getElementById()
 - Arguments: id 
