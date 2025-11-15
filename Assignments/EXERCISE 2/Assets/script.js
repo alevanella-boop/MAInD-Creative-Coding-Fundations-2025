@@ -54,9 +54,35 @@ cells.forEach(cell => {
 
 // ________________________________________________ NEW CODE ____________________________________________________
 
+
+// __________________ SOUNDS
+
+//uploading sounds
+const clickSound = new Audio('Assets/DOCS/click.mp3');
+const errorSound = new Audio('Assets/DOCS/error.mp3');
+const drawSound = new Audio('Assets/DOCS/draw.mp3');
+const winSound = new Audio('Assets/DOCS/win.mp3');
+
+// Function to play sound
+function playSound(sound) {
+  sound.currentTime = 0; // Reset to start
+  sound.play().catch(e => console.log('Sound play failed:', e));
+}
+
+
+
+// __________________ PLAYERS SET UP
+
+// names
+let playerNames = {
+  X: 'Player X',
+  O: 'Player O'
+};
+
+
+
 // STATUS OF THE GAME
-// I need to create an array to represent the game board, so I will use a simple array with 9 elements
-// in the beggining, all the cells will be empty
+//array to represent the game board, in the beggining, all the cells will be empty
 let board = Array(9).fill('');
 
 //the first player will be X (currentPlayer = initialPlayer)
@@ -92,6 +118,32 @@ const scoreX = document.getElementById('ScoreX');
 const scoreO = document.getElementById('ScoreO');
 const scoreTie = document.getElementById('ScoreTie');
 
+//player status elements
+const playerSetup = document.getElementById('playerSetup');
+const gameInfo = document.getElementById('gameInfo');
+const startGameBtn = document.getElementById('startGameBtn');
+const playerXNameInput = document.getElementById('playerXName');
+const playerONameInput = document.getElementById('playerOName');
+const playerXLabel = document.getElementById('playerXLabel');
+const playerOLabel = document.getElementById('playerOLabel');
+
+            //style of game status
+            /*
+            gameStatus.style.fontSize = '1.5rem';
+            gameStatus.style.color = "pink";
+            gameStatus.style.backgroundColor = "white";
+            gameStatus.style.border = "3px solid purple";
+            gameStatus.style.borderRadius = "10px";
+            gameStatus.style.Padding = "10 px 20px";
+            */
+            //gameStatus.classList.add("game-status-box");
+
+// i decided to try to add styles in a new way, by working also on the css file and creating functions on the js file
+
+function updateStatusStyle(statusType) {
+    gameStatus.classList.remove("status-turn", "status-win", "status-draw", "status-error");
+    gameStatus.classList.add(statusType);
+}
 
 
 //EVENT LISTENERS
@@ -106,8 +158,37 @@ function attachCellListeners() {
   });
 }
 
-// Buttons
+// __________________  BUTTONS
+
 resetBtn.addEventListener('click', restartGame);
+resetScoreBtn.addEventListener('click', resetScores);
+
+// start game 
+startGameBtn.addEventListener('click', () => {
+  
+  const nameX = playerXNameInput.value.trim() || 'Player X';
+  const nameO = playerONameInput.value.trim() || 'Player O';
+  
+  
+  playerNames.X = nameX;
+  playerNames.O = nameO;
+  
+  
+  playerXLabel.textContent = nameX;
+  playerOLabel.textContent = nameO;
+  
+  
+  playerSetup.style.display = 'none';
+  
+  
+  gameInfo.style.display = 'block';
+  
+  
+  initGame();
+});
+
+// reset score
+
 resetScoreBtn.addEventListener('click', resetScores);
 
 
@@ -126,9 +207,13 @@ function initGame() {
     cell.textContent = '';
     cell.classList.remove('taken', 'winner', 'X', 'O');
   });
-  renderMessage(`Player ${currentPlayer}'s turn`);
+
+  /*renderMessage(`Player ${currentPlayer}'s turn`);
   updateScoreBoard();
- console.log("Board reloaded:", board);
+ console.log("Board reloaded:", board);*/
+
+    updateStatusStyle("status-turn");
+    renderMessage(`${playerNames[currentPlayer]}'s turn`);
 
  // Attach cells listeners
   if (!attachCellListeners._attached) {
@@ -138,25 +223,32 @@ function initGame() {
 }
 
 function handleCellClick(index) {
+  
   if (!gameActive) return;
-  if (board[index] !== '') {
-    // Celda ocupada
-    renderMessage('Cell already taken — choose another');
+  
+    if (board[index] !== '') {
+    playSound(errorSound);
+    
+   updateStatusStyle("status-error");
+    renderMessage('Cell already taken, choose another');
     return;
   }
-  // marcar en el tablero
+
+  playSound(clickSound);
+  
   updateBoard(index, currentPlayer);
-  // check for winner or draw
+
   const winner = checkWinner();
   if (winner) {
     endGame(winner);
     return;
   }
+  
   if (checkDraw()) {
     endGame('tie');
     return;
   }
-  // switch player
+
   switchPlayer();
 }
 
@@ -195,23 +287,28 @@ function checkDraw() {
   return board.every(cell => cell !== '');
 }
 
-
+// Switch between X and O
 function switchPlayer() {
-  // identify each player's turn
+ 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-  // update display
-  renderMessage(`Player ${currentPlayer}'s turn`);
+  
+   renderMessage(`${playerNames[currentPlayer]}'s turn`);
 }
 
 
 function endGame(result) {
-  gameActive = false;                            // usign again the same boolean variable declared at the top, this time is to stop the game
+  gameActive = false;                       // usign again the same boolean variable declared at the top, this time is to stop the game
+                             
   if (result === 'tie') {
+    playSound(drawSound);
+    updateStatusStyle("status-draw");
     renderMessage("It's a draw!");
     scores.tie++;
   } 
   
   else {
+    playSound(winSound);
+    updateStatusStyle("status-win");
     renderMessage(`Player ${result} wins!!!`);
     scores[result]++;
   }
@@ -234,7 +331,7 @@ function resetScores() {
 
   updateScoreBoard();
 
-  renderMessage(`Scores reset. Player ${currentPlayer}'s turn`);
+  renderMessage(`Scores reset. ${playerNames[currentPlayer]}'s turn`);
 }
 
 // Update score display
@@ -247,5 +344,4 @@ function updateScoreBoard() {
 // Rendered message to players
 function renderMessage(text) {
   if (gameStatus) gameStatus.textContent = text;
-  if (currentPlayerDisplay) currentPlayerDisplay.textContent = `Player ${currentPlayer}'s turn`;
 }

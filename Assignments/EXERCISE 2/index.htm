@@ -18,9 +18,30 @@
 
         <h1>Tic Tac Toe</h1>
 
-        <div class="game-info">
+        <!-- Player Names Setup Modal = "AVATAR" -->
+        <div class="player-setup" id="playerSetup">
 
-            <div class="current-player" id="CurrentPlayer">Player X's turn</div>
+            <h2>Enter Player Names</h2>
+
+            <div class="name-inputs">
+
+                <div class="input-group">
+                    <label for="playerXName">Player X:</label>
+                    <input type="text" id="playerXName" placeholder="Player X" maxlength="15">
+                </div>
+
+                <div class="input-group">
+                    <label for="playerOName">Player O:</label>
+                    <input type="text" id="playerOName" placeholder="Player O" maxlength="15">
+                </div>
+
+                </div>
+                <button class="btn btn-primary" id="startGameBtn">Start Game</button>
+                </div>
+
+            <div class="game-info" id="gameInfo">
+
+        <div class="game-info">
 
             <!--CREATION OF THE GAME BOARD-->
             <!--I created 9 buttons in order to obtain clickable areas, hoping that this will later allow me to assign X/O-->
@@ -50,17 +71,17 @@
                 <!--CREATION OF THE SCORE CONTAINER-->
                 <!--I created 2 divs per player, one will be used as a lable and the other as the actual score count. This last div will then be controlled in Javascript-->
 
-                <div class="score X">
+                <div class="scoreX">
                     <div class="score-label"> Player X</div>
                     <div class="score-value" id="ScoreX">0</div>
                 </div>
 
-                <div class="score tie">
+                <div class="scoreTie">
                     <div class="score-label"> Ties</div>
                     <div class="score-value" id="ScoreTie">0</div>
                 </div>
 
-                <div class="score O">
+                <div class="scoreO">
                     <div class="score-label"> Player O</div>
                     <div class="score-value" id="ScoreO">0</div>
                 </div>
