@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="Assets/style.css">
+    <script src="Assets/script.js" defer></script>
+</head>
+
+<body>
+    <!--this div will contain the whole content of the page-->
+    <div class="container">
+
+        <h1>Tic Tac Toe</h1>
+
+        <div class="game-info">
+
+            <div class="current-player" id="CurrentPlayer">Player X's turn</div>
+
+            <!--CREATION OF THE GAME BOARD-->
+            <!--I created 9 buttons in order to obtain clickable areas, hoping that this will later allow me to assign X/O-->
+            <div class="game-board" id="gameBoard">
+                <button class="cell" data-index="0"></button>
+                <button class="cell" data-index="1"></button>
+                <button class="cell" data-index="2"></button>
+                <button class="cell" data-index="3"></button>
+                <button class="cell" data-index="4"></button>
+                <button class="cell" data-index="5"></button>
+                <button class="cell" data-index="6"></button>
+                <button class="cell" data-index="7"></button>
+                <button class="cell" data-index="8"></button>
+             </div>
+
+            <div class="game-status" id="gameStatus"></div>
+            
+            <!--CREATION OF THE "CONTROLS"-->
+            <!--I created 2 controls, one will be used for start a new match and the other will be used to reset the score of the whole game-->
+            <div class="controls">
+                <button class="btn btn-primary" id="resetBtn">New Match</button>
+                <button class="btn btn-secondary" id="resetScoreBtn">Reset Score</button>
+            </div>
+
+            <div class="score-board">
+
+                <!--CREATION OF THE SCORE CONTAINER-->
+                <!--I created 2 divs per player, one will be used as a lable and the other as the actual score count. This last div will then be controlled in Javascript-->
+
+                <div class="score X">
+                    <div class="score-label"> Player X</div>
+                    <div class="score-value" id="ScoreX">0</div>
+                </div>
+
+                <div class="score tie">
+                    <div class="score-label"> Ties</div>
+                    <div class="score-value" id="ScoreTie">0</div>
+                </div>
+
+                <div class="score O">
+                    <div class="score-label"> Player O</div>
+                    <div class="score-value" id="ScoreO">0</div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
