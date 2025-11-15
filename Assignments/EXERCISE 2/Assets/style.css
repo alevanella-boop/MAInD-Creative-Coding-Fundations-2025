@@ -1,0 +1,241 @@
+
+
+/* _______________ GENERAL STYLES _______________ */
+
+body {
+font-family:'Arial', sans-serif;
+background: #cbfffc;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+height: 100vh;
+}
+
+.container{
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: 0,5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+.game-info{
+    margin-bottom: 2rem;
+}
+
+.current-player{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgb(255, 179, 0);
+    /*transition; color 0.3s ease;*/
+}
+
+
+/* _______________ GAME BOARD STYLES _______________ */
+
+/*general game board style*/
+.game-board{
+    /*display each btn as a table 3*3*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3px;
+    max-width: 400px;
+    background: transparent;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 0 auto 30px;
+    box-shadow: 0 20px 30px rgb(0, 255, 26);
+}
+
+/*cell style*/
+
+.cell{
+    aspect-ratio: 1;
+    background: #faa0a0;
+    border: none;
+    border-radius: 8px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    /*transition: all 0.2s ease; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: #a5b2ee;
+    color: #000000;
+    border: 2px solid green;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #000000;
+    border: 2px solid green;
+}
+
+.game-status {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    padding: 20px;
+    background: gray;
+    border-radius: 12px;
+}
+
+.score {
+    text-align: center;
+}
+
+.score-label {
+    font-size: 0,9rem;
+    color: white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.score.X .score-value {
+    color: green;
+}
+
+.score.O .score-value {
+    color: #807a00;
+}
+
+.score.tie .score-value {
+    color: #4d4a14;
+}
+
+
+/* this elements are created by js */
+
+.winner-message {
+    color: green;
+    font-weight: bold;
+}
+
+.tie-message {
+    color: #808000;
+    font-weight: bold;
+}
+
+
+/* _______________ INTERACTIVE STYLES _______________ */
+
+
+/* cells */
+.cell:hover:not(.taken){
+    background: #f6a871;
+    /*transform: scale(1.05);*/
+    cursor: pointer;
+}
+
+.cell:.taken{
+    cursor: not-allowed;
+}
+
+
+/* buttons */
+.btn-primary:hover {
+    background: #7f92ea;
+    color: #a1f6a1;
+    cursor: pointer;
+    transform: translateY(-2px)
+}
+
+.btn-secondary:hover {
+    background: #7f92ea;
+    color: #a1f6a1;
+    cursor: pointer;
+    transform: translateY(-2px)
+}
+
+/*this classes are going to be controlled from the js file*/
+.cell:.X{
+    color:#d0f6f6;
+
+}
+
+.cell:.O{
+    color:#dab5f9;
+}
+
+
+/*animation for the winner cells*/
+.cell.winner{
+    background:#71e4f6;
+    animation: winner-glow 0.6s ease-in-out;
+}
+
+/*effects*/
+@keyframes winner-glow {
+    0% {transform: scale(1);}
+    50% {transforms: scale(1.1); background: #f3dede;}
+    100% {transform: scale(1);}
+}
+
+
+/* _______________ MEDIA QUERIES _______________ */
+
+/* for smaller screens */
+
+@media only screen and (min-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .cell {
+    font-size: 2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 200px;
+  }
+}
+

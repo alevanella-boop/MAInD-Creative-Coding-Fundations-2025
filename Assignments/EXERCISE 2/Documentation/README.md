@@ -1,5 +1,4 @@
-## ASSIGNMENT 2
-
+## ASSIGNMENT 2 - create a game
 ## BRIEF
 
 Choose a “mini-game” to rebuild with HTML, CSS and JavaScript. The requirements are:
@@ -24,6 +23,7 @@ upload flow-chart + description
 
 #### HTML
 ![alt text](<DOCS/html done.jpg>)
+
 The HTML was incredibly short and simple, as all styling and interactions are done by using first CSS and then Javascript. 
 I tried to keep the structure of the game as simple as possible in order to have an easier approach on the .js
 
