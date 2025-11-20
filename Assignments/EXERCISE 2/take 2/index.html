@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="Assets/style.css">
+    <script src="Assets/script.js" defer></script>
+</head>
+
+<body>
+
+  <h1>Tic Tac Toe</h1>
+  <div class="layout">
+
+    <!-- aside / LEFT PANEL (desktop) -->
+    <aside>
+      <div class="left-panel">
+        
+        <!-- Desktop player setup -->
+        <div class="player-setup" id="playerSetup">
+          <h2>Enter Player Names</h2>
+
+          <div class="input-group">
+            <label for="playerXName">Player X:</label>
+            <input type="text" id="playerXName" placeholder="Type your name to start playing" maxlength="15">
+          </div>
+
+          <div class="input-group">
+            <label for="playerOName">Player O:</label>
+            <input type="text" id="playerOName" placeholder="Type your name to start playing" maxlength="15">
+          </div>
+
+          <button class="btn btn-primary" id="startGameBtn">Start Game</button>
+        </div>
+
+        <!-- Desktop scoreboard -->
+        <div class="score-board" id="scoreBoardDesktop">
+
+            <h2>Scoreboard</h2>
+
+            <div class="score-row">
+                <div id="playerXLabel">Player X:</div>
+                <div id="ScoreX">0</div>
+            </div>
+
+            <div class="score-row">
+                <div id="playerOLabel">Player O:</div> 
+                <div id="ScoreO">0</div>
+            </div>
+
+            <div class="score-row">
+                <div>Ties:</div>
+                <div id="ScoreTie">0</div>
+            </div>
+            </div>
+      </div>
+
+      <!-- Mobile hamburger button (visible only on small screens) -->
+      <button id="menuBtn" class="hamburger">☰ Menu</button>
+
+      <!-- Mobile menu with player setup + scoreboard + controls -->
+      <nav id="mobileMenu" class="mobile-menu">
+
+        <!-- Mobile player setup -->
+        <div class="player-setup mobile-only" id="playerSetupMobile">
+          <h2>Enter Player Names</h2>
+
+          <div class="input-group">
+            <label for="playerXName_mobile">Player X:</label>
+            <input type="text" id="playerXName_mobile" placeholder="Type your name to start playing" maxlength="15">
+          </div>
+
+          <div class="input-group">
+            <label for="playerOName_mobile">Player O:</label>
+            <input type="text" id="playerOName_mobile" placeholder="Type your name to start playing" maxlength="15">
+          </div>
+
+          <button class="btn btn-primary" id="startGameBtn_mobile">Start Game</button>
+        </div>
+
+        <!-- Mobile scoreboard -->
+        <div class="score-board mobile-only" id="scoreBoardMobile">
+
+          <h2>Scoreboard</h2>
+
+          <div class="score-row">
+            <div id="playerXLabel_m">Player X:</div>
+            <div id="playerXScore_m">0</div>
+          </div>
+
+          <div class="score-row">
+            <div id="playerOLabel_m">Player O:</div>
+            <div id="playerOScore_m">0</div>
+          </div>
+
+          <div class="score-row">
+            <div>Ties:</div>
+            <div id="tiesScore_m">0</span>
+         </div>
+        </div>
+
+        <!-- Mobile controls -->
+        <div class="mobile-controls">
+          <button class="btn btn-primary" id="resetBtnMobile">New Match</button>
+          <button class="btn btn-secondary" id="resetScoreBtnMobile">Reset Score</button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- MAIN: game board + status + controls -->
+    <main>
+      <div class="game-info">
+        <!-- Game board (same as before) -->
+        <div class="game-board" id="gameBoard">
+          <button class="cell" data-index="0"></button>
+          <button class="cell" data-index="1"></button>
+          <button class="cell" data-index="2"></button>
+          <button class="cell" data-index="3"></button>
+          <button class="cell" data-index="4"></button>
+          <button class="cell" data-index="5"></button>
+          <button class="cell" data-index="6"></button>
+          <button class="cell" data-index="7"></button>
+          <button class="cell" data-index="8"></button>
+        </div>
+
+        <!-- Status (ID matches your JS) -->
+        <div class="game-status status-turn" id="gameStatus"></div>
+
+        <!-- Controls (desktop) -->
+        <div class="controls">
+          <button class="btn btn-primary" id="resetBtn">New Match</button>
+          <button class="btn btn-secondary" id="resetScoreBtn">Reset Score</button>
+        </div>
+
+        <!-- Mobile visible scoreboard under board (if you want it visible on mobile) -->
+        <div class="score-board mobile-visible" id="scoreBoardUnderBoard">
+          <div class="score-row"><span id="ScoreX_under">0</span> <small>Player X</small></div>
+          <div class="score-row"><span id="ScoreTie_under">0</span> <small>Ties</small></div>
+          <div class="score-row"><span id="ScoreO_under">0</span> <small>Player O</small></div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>

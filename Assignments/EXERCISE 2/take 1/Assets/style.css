@@ -8,7 +8,6 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 align-items: center;
-height: 100vh;
 }
 
 .container{
@@ -88,19 +87,17 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 3px;
     max-width: 350px;
-    background: #E0A458;
+    background: #323232;
     border-radius: 12px;
     margin: 0 auto 30px;
-    box-shadow: 0 20px 20px 20px #E0A458;
 }
 
 /*cell style*/
 
 .cell{
     aspect-ratio: 1;
-    background: #FFDBB5;
+    background: #f2f2f2;
     border: none;
-    border-radius: 8px;
     font-size: 3rem;
     display: flex;
     align-items: center;
@@ -273,24 +270,78 @@ h2 {
 
 /* _______________ MEDIA QUERIES _______________ */
 
-/* for smaller screens */
-
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .cell {
-    font-size: 2rem;
-  }
-
-  .controls {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 200px;
-  }
+/* Hide mobile menu on desktop */
+.mobile-menu {
+    display: none;
 }
+
+/* The extra mobile-only player setup stays hidden on desktop */
+.mobile-only {
+    display: none;
+}
+
+
+
+/*DESKTOP MODE*/
+@media only screen and (min-width: 600px){
+    .hamburger {
+        display: none;
+    }
+}
+
+
+/*MOBILE MODE*/
+@media only screen and (max-width: 600px) {
+
+    /*vertical layout on phone*/
+    .layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    /*show hamburger button*/
+
+    .hamburger {
+        display: block;
+        background: #c04abc;
+        color: white;
+        border: none;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+
+    /*mobile dropdown menu*/
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 1rem;
+        background: #ffdbb5;
+        border: 3px solid #c04abc;
+        border-radius: 12px;
+        width: 90%;
+    }
+
+    .mobile-menu.show {
+            display: flex;
+    }
+    
+    
+    /*hide desktop player setup*/
+    #playerSetup {
+        display: none;
+    }
+
+    /*show mobile player setup*/
+    .mobile-only {
+        display: block;
+    }
+    
+}
+
+
 

@@ -80,6 +80,14 @@ let playerNames = {
 };
 
 
+// __________________ MOBILE MENU TOGGLE
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+});
+
 
 // STATUS OF THE GAME
 //array to represent the game board, in the beggining, all the cells will be empty
@@ -158,6 +166,7 @@ function attachCellListeners() {
   });
 }
 
+
 // __________________  BUTTONS
 
 resetBtn.addEventListener('click', restartGame);
@@ -209,7 +218,7 @@ function initGame() {
   });
 
   /*renderMessage(`Player ${currentPlayer}'s turn`);
-  updateScoreBoard();
+ updateScoreBoard();
  console.log("Board reloaded:", board);*/
 
     updateStatusStyle("status-turn");
@@ -257,7 +266,7 @@ function updateBoard(index, player) {
   const cell = document.querySelector(`.cell[data-index="${index}"]`);
   if (cell) {
     cell.textContent = player;
-    cell.classList.add('taken', player); // clase 'X' o 'O' útil para estilos
+    cell.classList.add('taken', player); // class 'X' or 'O' useful for styles
   }
 }
 
