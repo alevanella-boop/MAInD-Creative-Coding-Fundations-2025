@@ -18,7 +18,7 @@ Choose a “mini-game” to rebuild with HTML, CSS and JavaScript. The requireme
 
 ## STEP BY STEP
 #### FLOW-CHART
-![alt text](Documentation/DOCS/tic-tac-toe.drawio.png)
+![flowchart](Documentation/DOCS/tic-tac-toe.drawio.png)
 
 
 ## LIST OF FUNCTIONALITIES
