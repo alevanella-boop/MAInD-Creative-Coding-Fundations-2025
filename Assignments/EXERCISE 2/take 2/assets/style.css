@@ -34,9 +34,12 @@ aside {
 
 /* title */
 h1 { 
-    font-size: 3rem; 
+    font-size: 3.5rem; 
     color: #7DE8BD; 
-    margin-bottom: 0.5rem; 
+    margin: 0.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*PLAYER SETUP BOX*/
