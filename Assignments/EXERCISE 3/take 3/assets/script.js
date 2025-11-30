@@ -1,4 +1,3 @@
-// ==========================================================
 //  INITIAL GAME STATE
 // ==========================================================
 
@@ -39,7 +38,7 @@ const winConditions = [
 let duckImage = "";
 let foxImage = "";
 
-// Fetch random images each match
+// Fetch random images each match (preloading)
 function fetchMatchImages() {
     // Duck for X
 
@@ -58,7 +57,8 @@ function fetchMatchImages() {
     // Fox for O
     fetch("https://randomfox.ca/floof/")
         .then(res => res.json())
-        .then(data => foxImage = data.image)
+        .then(data => 
+            foxImage = data.image)
         .catch(() => foxImage = "");
             foxImage = "";
             console.warn("Fox API failed — fallback will be used.");
@@ -69,6 +69,8 @@ function fetchMatchImages() {
 //  SOUND EFFECTS
 // ==========================================================
 const clickSound = new Audio("Assets/DOCS/click.mp3");
+const duckSound = new Audio("Assets/DOCS/duck.mp3"); //X player
+const foxSound = new Audio("Assets/DOCS/fox.mp3");   //Y player
 const errorSound = new Audio("Assets/DOCS/error.mp3");
 const winSound   = new Audio("Assets/DOCS/win.mp3");
 const tieSound   = new Audio("Assets/DOCS/draw.mp3");
@@ -185,7 +187,7 @@ function initGame() {
     board = ["", "", "", "", "", "", "", "", ""];
     currentPlayer = "X";
     gameActive = true;
-
+    
     // FETCH NEW IMAGES FOR THE MATCH
     fetchMatchImages();
 
@@ -226,9 +228,10 @@ cells.forEach(cell => {
             return;
         }
 
-        clickSound.currentTime = 0;
-        clickSound.play();
+        //clickSound.currentTime = 0;
+        //clickSound.play();
 
+        //update board state
         board[index] = currentPlayer;
         cell.textContent = "";
 
@@ -237,8 +240,13 @@ cells.forEach(cell => {
         // I tried do add a fallback, in case the api didn't work properly, but the code kept on breaking
         if (currentPlayer === "X") {
             cell.style.backgroundImage = `url('${duckImage}')`;
+            duckSound.currentTime = 0;
+            duckSound.play();
+
         } else {
             cell.style.backgroundImage = `url('${foxImage}')`;
+            foxSound.currentTime = 0;
+            foxSound.play();
         }
 
         cell.style.backgroundSize = "cover";
