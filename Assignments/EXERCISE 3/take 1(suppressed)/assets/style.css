@@ -1,0 +1,404 @@
+/* GENERAL LAYOUT*/
+
+* { 
+    box-sizing: border-box; 
+    margin:0; 
+    padding:0;
+    font-family: Arial, sans-serif; 
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* aside + left-panel */
+aside { 
+    display:flex; 
+    flex-direction: column; 
+    gap:1rem; 
+}
+
+.left-panel { 
+    display:flex; 
+    flex-direction: column; 
+    gap:1rem; 
+    max-width:340px; 
+    width: 100%; 
+}
+
+/* title */
+h1 { 
+    font-size: 3.5rem; 
+    color: #7DE8BD; 
+    margin: 0.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*PLAYER SETUP BOX*/
+.player-setup {
+  padding: 14px;
+  border-radius: 12px;
+  border: 3px solid #C04ABC;
+}
+
+.player-setup h2 { 
+    margin-bottom: 8px; 
+}
+
+.input-group { 
+    margin-bottom: 10px; 
+    display:flex; 
+    flex-direction:column; 
+    gap:6px; 
+}
+
+.input-group label { 
+    font-weight:700; 
+    color:#2D3047; 
+}
+
+.input-group input { 
+    padding:8px; 
+    border-radius:8px; 
+    border:2px solid #C04ABC; 
+}
+
+/* buttons default */
+.btn { 
+    padding:10px 14px; 
+    border-radius:8px; 
+    cursor:pointer; 
+    border:none; 
+    font-weight:700; 
+}
+
+.btn-primary { 
+    background:#7DE8BD; 
+    color: #2D3047; 
+    border: 3px solid #C04ABC;
+    margin: 5px;
+}
+
+.btn-secondary { 
+    background:transparent; 
+    border:2px solid #C04ABC; 
+    color:#2D3047; 
+    margin: 5px;
+}
+
+
+/*SCOREBOARD*/
+
+.score-board { 
+    padding:12px; 
+    border-radius:12px; 
+    border:3px solid #C04ABC; 
+}
+
+.score-row { 
+    margin: 8px 0;
+    padding: 10px;
+    font-weight:700;
+    border-radius: 10 px;
+    border: 3px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+/*color for score X*/
+.score-row:nth-child(2) {
+    background: #eea2eb;
+    border-color: #C04ABC;
+}
+
+/*color for Ties*/
+.score-row:nth-child(3) {
+    background: #fad8ac;
+    border-color: #E0A458;
+}
+
+/*color for score O*/
+.score-row:nth-child(4) {
+    background: #a9aed7;
+    border-color: #2D3047;
+}
+
+
+
+/*GAME BOARD*/
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 3px;
+  background: black;
+}
+
+.cell {
+ /* background: #f3f3f3; */
+  background-size: contain;
+  font-size: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cell:hover { 
+    background:#fad8ac; 
+}
+
+
+/*GAME STATUS and CONTROLS*/
+
+.game-status {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+
+/* GAME STATUS CLASSES */
+
+.status-turn  { 
+    color: #2D3047; 
+    border:3px solid #C04ABC; 
+}
+
+.status-win   { 
+    color: #2D3047; 
+    background-color: #7DE8BD;
+    border: 3px solid #C04ABC;
+}
+
+.status-draw  { 
+    background-color: #E0A458;
+    color: black;
+}
+
+.status-error { 
+    background-color: #e74c3c; 
+    border: 3px solid #8b1e14;
+}
+
+.controls { 
+    display:flex; 
+    gap:12px; 
+    margin-top:10px; 
+}
+
+/*MOBILE MENU*/
+
+.hamburger { 
+    display: none; 
+    background:#C04ABC; 
+    color:white; 
+    border:none; padding:8px 12px; 
+    border-radius:8px; 
+}
+
+.mobile-menu { 
+    display: none; 
+    flex-direction:column;
+    gap:10px; 
+    padding:12px; 
+    border-radius:10px; 
+    border:3px solid #C04ABC;
+    width: 90%; 
+}
+
+/* class used in JS toggling */
+.mobile-menu.show { 
+    display:flex; 
+}
+
+/* hide mobile-only desktop elements by default (mobile first)*/
+.mobile-only { 
+    display:none; 
+}
+
+/* scoreboard under board for mobile visibility */
+.score-board.mobile-visible { 
+    display:none; 
+}
+
+
+
+/*RULES*/
+
+.hidden {
+    display: none !important;
+}
+
+/* Container for the rules screen */
+#rulesSection {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    border: 3px solid #C04ABC;
+    background: #faf6ff;
+    max-width: 500px;
+    width: 100%;
+    line-height: 1.6;
+}
+
+#rulesSection h2 {
+    margin-bottom: 12px;
+    text-align: center;
+    color: #2D3047;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+#rulesSection p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #2D3047;
+}
+
+
+/* DESKTOP */
+
+#rulesBtnDesktop {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+/* MOBILE */
+
+#rulesBtnMobile {
+    width: 100%;
+    margin-top: 8px;
+}
+
+
+
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 600px) {
+
+  /* layout changes */
+  .layout { 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 12px; 
+    gap: 12px; 
+    }
+
+  /* left panel hidden on mobile (desktop controls inside menu) */
+  .left-panel { 
+    display: none; 
+    }
+
+  /* show hamburger button */
+  .hamburger { 
+    display:block; 
+    align-self:center; 
+    }
+
+  /* mobile menu becomes visible when JS toggles 'show' class */
+  .mobile-only { 
+    display:block; 
+    }
+
+  /* mobile menu default hidden (JS toggles 'show') */
+  .mobile-menu { 
+    display:none; 
+    }
+
+    /* make gameboard slightly smaller on narrow screens */
+    .game-board {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+
+    /* show scoreboard under board (always visible on mobile) */
+    .score-board.mobile-visible {
+        display:flex; 
+        flex-direction: row; 
+        gap: 12px; 
+        margin-top: 12px; 
+    }
+
+    .score-board.mobile-visible .score-row { 
+        font-weight:700; 
+    }
+
+    /* mobile menu scoreboard */
+    .mobile-menu .score-board { 
+        padding: 12px; 
+        border-radius: 12px; 
+        border: 3px solid #C04ABC;
+        margin-bottom: 10px;
+    }
+
+    .mobile-menu .score-row { 
+    margin: 8px 0;
+    padding: 10px;
+    font-weight:700;
+    border-radius: 10 px;
+    border: 3px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    }
+
+    /* Color for Player X row*/
+  .mobile-menu .score-row:nth-child(2) { 
+    background: #eea2eb;
+    border-color: #C04ABC;
+  }
+
+   /* Color for Player O row */
+  .mobile-menu .score-row:nth-child(4) { 
+    background: #a9aed7;
+    border-color: #2D3047;
+  }
+   
+  .mobile-controls { 
+    display: flex; 
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-controls .btn { 
+    width: 100%;
+  }
+
+
+  /* Rules rection*/
+
+  #rulesSection {
+        margin-top: 16px;
+        padding: 16px;
+        width: 90%;
+        align-self: center;
+    }
+
+    #rulesSection h2 {
+        font-size: 1.4rem;
+    }
+
+    #rulesSection p {
+        font-size: 0.95rem;
+    }
+
+
+}
