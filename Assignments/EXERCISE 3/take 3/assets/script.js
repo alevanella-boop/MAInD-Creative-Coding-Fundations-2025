@@ -68,7 +68,7 @@ function fetchMatchImages() {
 
 //  SOUND EFFECTS
 // ==========================================================
-const clickSound = new Audio("Assets/DOCS/click.mp3");
+//const clickSound = new Audio("Assets/DOCS/click.mp3");
 const duckSound = new Audio("Assets/DOCS/duck.mp3"); //X player
 const foxSound = new Audio("Assets/DOCS/fox.mp3");   //Y player
 const errorSound = new Audio("Assets/DOCS/error.mp3");
@@ -245,6 +245,7 @@ cells.forEach(cell => {
 
         } else {
             cell.style.backgroundImage = `url('${foxImage}')`;
+            //I DO NOT UNDERSTAND WHY FOXSOUND IS NOT PLAYING
             foxSound.currentTime = 0;
             foxSound.play();
         }
