@@ -10,8 +10,8 @@ Upgrade the **Assignment 02** by adding the use of data coming from an external 
 - [x] Develop a navigation system that allows the user to navigate different sections with related content and functionalities
 
 ## Screenshots:
-![desktop view](DOCS/desktop.png)
-![mobile view](DOCS/mobile.png)
+![desktop view](DOCS/desktop.png)   ![mobile view](DOCS/mobile.png)
+
 
 
 ## Project description:
